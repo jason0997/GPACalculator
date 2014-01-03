@@ -6,16 +6,16 @@
     <string name="welcome">WELCOME TO GPA CALCULATOR!</string>
     <string name="appinfo">Practice Project by Jason Lu</string>
     <string name="startbutton">Start</string>
-    <string name="title_activity_start_calculator">StartCalculatorActivity</string>
+    <string name="title_activity_start_calculator">Start Calculation!</string>
     <string name="calculation_instruction">Please input the course code and marks</string>
     <string name="submit_button">Submit</string>
-    <string name="add_button">Add</string>
-    <string name="title_activity_result">ResultActivity</string>
+    <string name="add_button">+</string>
+    <string name="title_activity_result">Result:</string>
     <string name="result_instruction">Your GPA result:</string>
     <string name="course_code_sample">E.g. CSC108H</string>
     <string name="mark_sample">E.g. 78</string>
     <string name="course_code">Course Code</string>
     <string name="mark">Mark</string>
-    <string name="remove_button">Remove</string>
+    <string name="remove_button">-</string>
     
 </resources>

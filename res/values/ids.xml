@@ -23,5 +23,7 @@
         <item type="id" name="mark_et_9" />
         <item type="id" name="mark_et_10" />
         <item type="id" name="mark_et_11" />
-        
-    </resources>
+
+        <item type="id" name="last_course_code"/>
+        <item type="id" name="CGPA"/>
+   </resources>
