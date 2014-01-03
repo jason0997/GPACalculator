@@ -71,6 +71,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignRight="@+id/mark_et_0"
+         android:layout_alignBaseline="@+id/add"
          android:onClick="Submit_GPA"
          android:text="@string/submit_button" />
 	
@@ -79,7 +80,7 @@
          style="?android:attr/buttonStyleSmall"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginLeft="60dp"
+         android:layout_alignRight="@+id/course_code_et_0" 
          android:layout_alignBaseline="@+id/add"
          android:text="@string/remove_button" />
 		

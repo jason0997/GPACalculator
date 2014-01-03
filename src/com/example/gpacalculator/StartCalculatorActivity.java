@@ -21,7 +21,11 @@ public class StartCalculatorActivity extends Activity {
 	private Button addButton;
 	private Button submitButton;
 	private Button removeButton;
+    final RelativeLayout.LayoutParams paramsAddButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    final RelativeLayout.LayoutParams paramsSubmitButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    final RelativeLayout.LayoutParams paramsRemoveButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	static private int Count;
+    public final static String EXTRA_MESSAGE = "com.example.gpacalculator.MESSAGE";
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +39,17 @@ public class StartCalculatorActivity extends Activity {
         addButton.setOnClickListener(onAddClick());
         removeButton.setOnClickListener(onRemoveClick());
         
-        final RelativeLayout.LayoutParams paramsButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        paramsButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_0);
-        addButton.setLayoutParams(paramsButton);
+        paramsAddButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_0);
+        addButton.setLayoutParams(paramsAddButton);
         
-        final RelativeLayout.LayoutParams paramsSubmitButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         paramsSubmitButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.mark_et_0);
         paramsSubmitButton.addRule(RelativeLayout.ALIGN_BASELINE,R.id.add);
         submitButton.setLayoutParams(paramsSubmitButton);       
+
+        paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT ,R.id.course_code_et_0);
+        paramsRemoveButton.addRule(RelativeLayout.ALIGN_BASELINE,R.id.add);
+        submitButton.setLayoutParams(paramsSubmitButton);       
+        
         Count = 0;
         // Show the Up button in the action bar.
         setupActionBar();
@@ -53,16 +60,34 @@ public class StartCalculatorActivity extends Activity {
             @Override
             public void onClick(View v) {
             	if(Count>0){
-	            	String oldCourseCode = "course_code_et_" + Count;
+	            	String preCourseCode = "course_code_et_" + (Count - 1);
+	            	int preCourseCodeid = getResources().getIdentifier(preCourseCode, "id", getPackageName());	            	            	
+	            	String preMark = "mark_et_" + (Count - 1);
+	            	int preMarkid = getResources().getIdentifier(preMark, "id", getPackageName());
+
+	            	paramsAddButton.addRule(RelativeLayout.BELOW,preCourseCodeid);
+                    addButton.setLayoutParams(paramsAddButton);
+
+                    paramsSubmitButton.addRule(RelativeLayout.BELOW,preMarkid);
+                    paramsSubmitButton.addRule(RelativeLayout.ALIGN_RIGHT,preMarkid);
+                    submitButton.setLayoutParams(paramsSubmitButton);                  	                	
+
+                    paramsRemoveButton.addRule(RelativeLayout.BELOW,preCourseCodeid);
+                    paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT,preCourseCodeid);
+                    removeButton.setLayoutParams(paramsRemoveButton);                  	                	                    	            	
+
+            		String oldCourseCode = "course_code_et_" + Count;
 	            	int oldCourseCodeid = getResources().getIdentifier(oldCourseCode, "id", getPackageName());
 	            	EditText courseCodeET = (EditText)findViewById(oldCourseCodeid);
 	            	courseCodeET.setVisibility(EditText.GONE);
+	            	mLayout.removeView(courseCodeET);
 	
 	            	String oldMark = "mark_et_" + Count;
 	            	int oldMarkid = getResources().getIdentifier(oldMark, "id", getPackageName());
 	            	EditText markET = (EditText)findViewById(oldMarkid);
-	            	markET.setVisibility(EditText.GONE);
-	            	Count--;
+	            	mLayout.removeView(markET);
+	            		 	            	
+	            	Count = Count - 1;
             	}
             }
         };
@@ -88,16 +113,18 @@ public class StartCalculatorActivity extends Activity {
                 if(Count<11){
                     mLayout.addView(createNewCourseCode(),paramsCourseCode);
 	                mLayout.addView(createNewMark(),paramsMark);
-	                Count++;
+	                Count = Count + 1;
                 }else{
-                    final RelativeLayout.LayoutParams paramsButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                    paramsButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_11);
-                    addButton.setLayoutParams(paramsButton);
+                	paramsAddButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_11);
+                    addButton.setLayoutParams(paramsAddButton);
                     
-                    final RelativeLayout.LayoutParams paramsSubmitButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                    paramsSubmitButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.mark_et_11);
-                    paramsSubmitButton.addRule(RelativeLayout.ALIGN_BASELINE,R.id.add);
+                    paramsSubmitButton.addRule(RelativeLayout.BELOW,R.id.mark_et_11);
+                    paramsSubmitButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.mark_et_0);
                     submitButton.setLayoutParams(paramsSubmitButton);                  	                	
+
+                    paramsRemoveButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_11);
+                    paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.course_code_et_0);
+                    removeButton.setLayoutParams(paramsRemoveButton);                  	                	                    
                 }             
             }
         };
@@ -113,9 +140,12 @@ public class StartCalculatorActivity extends Activity {
     	int newCourseCodeid=getResources().getIdentifier(newCourseCode, "id",getPackageName());
         edittext.setId(newCourseCodeid);
         
-        final RelativeLayout.LayoutParams paramsButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        paramsButton.addRule(RelativeLayout.BELOW,newCourseCodeid);
-        addButton.setLayoutParams(paramsButton);
+        paramsAddButton.addRule(RelativeLayout.BELOW,newCourseCodeid);
+        addButton.setLayoutParams(paramsAddButton);
+
+        paramsRemoveButton.addRule(RelativeLayout.BELOW,newCourseCodeid);
+        paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.course_code_et_0);
+        removeButton.setLayoutParams(paramsRemoveButton);
         
         return edittext;
     }
@@ -132,7 +162,6 @@ public class StartCalculatorActivity extends Activity {
     	int newMarkid=getResources().getIdentifier(newMark, "id",getPackageName());
         edittext.setId(newMarkid);        
 
-        final RelativeLayout.LayoutParams paramsSubmitButton = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         paramsSubmitButton.addRule(RelativeLayout.BELOW,newMarkid);
         paramsSubmitButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.mark_et_0);
         submitButton.setLayoutParams(paramsSubmitButton);
@@ -158,11 +187,60 @@ public class StartCalculatorActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    
+   
     public void Submit_GPA(View view){
 		Intent intent = new Intent(this, ResultActivity.class);
-	    startActivity(intent);    	
+		String courseCode = null;
+		String mark = null;
+		int courseCodeid = 0;
+		int markid = 0;
+		String courseCodeInput = null;
+		String markInput =null;
+		for(int i=0; i<=Count; i++){
+			courseCode = "course_code_et_" + i;    
+			courseCodeid=getResources().getIdentifier(courseCode, "id",getPackageName());
+			EditText courseCodeET = (EditText)findViewById(courseCodeid);
+			courseCodeInput = courseCodeET.getText().toString();
+						
+			mark = "mark_et_" + i;
+			markid=getResources().getIdentifier(mark, "id",getPackageName());			
+			EditText markET = (EditText)findViewById(markid);
+			markInput = markET.getText().toString();
+			
+			if(!isEmpty(courseCodeInput,markInput)){
+				if(!isCourseCode(courseCodeInput)){
+					intent.putExtra(EXTRA_MESSAGE,"Invalid CourseCode format");								
+				}else if(!isMark(markInput)){
+					intent.putExtra(EXTRA_MESSAGE,"Invalid Mark format");								
+				}else{
+					intent.putExtra(EXTRA_MESSAGE, "Valid!");
+				}
+			}
+			else
+				intent.putExtra(EXTRA_MESSAGE,"Empty!!!");			
+		}
+		startActivity(intent);
     }
     
+    private boolean isEmpty(String courseCode, String mark){
+    	if(courseCode.matches("") || mark.matches(""))
+    			return true;
+    	return false;
+    }
     
+    private boolean isCourseCode(String courseCode){
+    	if(courseCode.matches("^[A-Za-z]{3}[0-9]{3}[YHyh]$"))
+    		return true;
+    	else
+    		return false;
+    }
+
+    private boolean isMark(String mark){
+    	if(mark.matches("^100$|^[1-9][0-9]$|^[0-9]$"))
+    		return true;
+    	else
+    		return false;
+    }
+
 }

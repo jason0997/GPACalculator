@@ -1,17 +1,25 @@
 package com.example.gpacalculator;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_result);
+		Intent intent = getIntent();
+		String message = intent.getStringExtra(StartCalculatorActivity.EXTRA_MESSAGE);
+		TextView textView = new TextView(this);
+	    textView.setTextSize(40);
+	    textView.setText(message);
+	    
+		setContentView(textView);
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}
