@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GPA Calculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">WELCOME TO GPA CALCULATOR!</string>
+    <string name="appinfo">Practice Project by Jason Lu</string>
+    <string name="startbutton">Start</string>
+    <string name="title_activity_start_calculator">StartCalculatorActivity</string>
+    <string name="calculation_instruction">Please input the course code and marks</string>
+    <string name="submit_button">Submit</string>
+    <string name="add_button">Add</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="result_instruction">Your GPA result:</string>
+    <string name="course_code_sample">E.g. CSC108H</string>
+    <string name="mark_sample">E.g. 78</string>
+    <string name="course_code">Course Code</string>
+    <string name="mark">Mark</string>
+    <string name="remove_button">Remove</string>
+    
+</resources>

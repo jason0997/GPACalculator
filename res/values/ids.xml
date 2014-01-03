@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <item type="id" name="course_code_et_1" />
+        <item type="id" name="course_code_et_2" />
+        <item type="id" name="course_code_et_3" />
+        <item type="id" name="course_code_et_4" />
+        <item type="id" name="course_code_et_5" />
+        <item type="id" name="course_code_et_6" />
+        <item type="id" name="course_code_et_7" />
+        <item type="id" name="course_code_et_8" />
+        <item type="id" name="course_code_et_9" />
+        <item type="id" name="course_code_et_10" />
+        <item type="id" name="course_code_et_11" />
+        
+        <item type="id" name="mark_et_1" />
+        <item type="id" name="mark_et_2" />
+        <item type="id" name="mark_et_3" />
+        <item type="id" name="mark_et_4" />
+        <item type="id" name="mark_et_5" />
+        <item type="id" name="mark_et_6" />
+        <item type="id" name="mark_et_7" />
+        <item type="id" name="mark_et_8" />
+        <item type="id" name="mark_et_9" />
+        <item type="id" name="mark_et_10" />
+        <item type="id" name="mark_et_11" />
+        
+    </resources>
