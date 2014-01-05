@@ -31,7 +31,7 @@ public class ResultActivity extends Activity {
 		RelativeLayout.LayoutParams [] Level_params = new RelativeLayout.LayoutParams[Level_array.length];
 		
 		TextView course_code_instr_tv = new TextView(this);
-		course_code_instr_tv.setText("Course code");
+		course_code_instr_tv.setText("Course");
 		RelativeLayout.LayoutParams course_code_instr_params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		course_code_instr_params.leftMargin=20;
 		course_code_instr_params.topMargin=70;
@@ -51,13 +51,6 @@ public class ResultActivity extends Activity {
 		Level_instr_params.topMargin=70;
 		rl.addView(Level_instr_tv,Level_instr_params);		
 
-		TextView result_instruction = new TextView(this);
-		RelativeLayout.LayoutParams result_instruction_params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		result_instruction_params.leftMargin=20;
-		result_instruction_params.topMargin=20;
-		
-		result_instruction.setText("Follows are your result:");
-		rl.addView(result_instruction,result_instruction_params);
 		
 		for(int i=0;i<course_code_array.length;i++){
 			course_code_textview[i] = new TextView(this);

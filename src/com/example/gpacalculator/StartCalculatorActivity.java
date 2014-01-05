@@ -50,7 +50,7 @@ public class StartCalculatorActivity extends Activity {
         paramsSubmitButton.addRule(RelativeLayout.ALIGN_BASELINE,R.id.add);
         submitButton.setLayoutParams(paramsSubmitButton);       
 
-        paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT ,R.id.course_code_et_0);
+        paramsRemoveButton.addRule(RelativeLayout.RIGHT_OF ,R.id.add);
         paramsRemoveButton.addRule(RelativeLayout.ALIGN_BASELINE,R.id.add);
         submitButton.setLayoutParams(paramsSubmitButton);       
         
@@ -77,7 +77,7 @@ public class StartCalculatorActivity extends Activity {
                     submitButton.setLayoutParams(paramsSubmitButton);                  	                	
 
                     paramsRemoveButton.addRule(RelativeLayout.BELOW,preCourseCodeid);
-                    paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT,preCourseCodeid);
+                    paramsRemoveButton.addRule(RelativeLayout.RIGHT_OF,R.id.add);
                     removeButton.setLayoutParams(paramsRemoveButton);                  	                	                    	            	
 
             		String oldCourseCode = "course_code_et_" + Count;
@@ -127,7 +127,7 @@ public class StartCalculatorActivity extends Activity {
                     submitButton.setLayoutParams(paramsSubmitButton);                  	                	
 
                     paramsRemoveButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_11);
-                    paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.course_code_et_0);
+                    paramsRemoveButton.addRule(RelativeLayout.RIGHT_OF,R.id.add);
                     removeButton.setLayoutParams(paramsRemoveButton);                  	                	                    
                 }             
             }
@@ -148,7 +148,7 @@ public class StartCalculatorActivity extends Activity {
         addButton.setLayoutParams(paramsAddButton);
 
         paramsRemoveButton.addRule(RelativeLayout.BELOW,newCourseCodeid);
-        paramsRemoveButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.course_code_et_0);
+        paramsRemoveButton.addRule(RelativeLayout.RIGHT_OF,R.id.add);
         removeButton.setLayoutParams(paramsRemoveButton);
         
         return edittext;
@@ -226,7 +226,7 @@ public class StartCalculatorActivity extends Activity {
 			
 			if(!isEmpty(courseCodeInput,markInput)){
 				if(!isCourseCode(courseCodeInput)){
-					alertDialogBuilder.setMessage("Invalid Course Code..");		
+					alertDialogBuilder.setMessage("Invalid Course Code..  (E.g. CSC108H or MAT235Y)");		
 					AlertDialog alertDialog = alertDialogBuilder.create();
 					alertDialog.show();
 					return;
@@ -317,7 +317,8 @@ public class StartCalculatorActivity extends Activity {
 			else
 				weigh = 1.0;
 			sum = sum + GPA * weigh;
-			count = count + weigh;    		
+			if(!GPA_array[i].equals("0"))
+				count = count + weigh;    		
     	}
 		Double result = sum / count;
 		result = (Double)(((int)Math.round((result * 100)))/100.0);
