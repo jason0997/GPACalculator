@@ -114,22 +114,23 @@ public class StartCalculatorActivity extends Activity {
                 paramsMark.addRule(RelativeLayout.ALIGN_LEFT,oldMarkid);
                 paramsMark.width=(int)(findViewById(oldMarkid)).getWidth();
 
-                if(Count<11){
+                if(Count<17){
                     mLayout.addView(createNewCourseCode(),paramsCourseCode);
 	                mLayout.addView(createNewMark(),paramsMark);
 	                Count = Count + 1;
                 }else{
-                	paramsAddButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_11);
+                	paramsAddButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_17);
                     addButton.setLayoutParams(paramsAddButton);
                     
-                    paramsSubmitButton.addRule(RelativeLayout.BELOW,R.id.mark_et_11);
+                    paramsSubmitButton.addRule(RelativeLayout.BELOW,R.id.mark_et_17);
                     paramsSubmitButton.addRule(RelativeLayout.ALIGN_RIGHT,R.id.mark_et_0);
                     submitButton.setLayoutParams(paramsSubmitButton);                  	                	
 
-                    paramsRemoveButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_11);
+                    paramsRemoveButton.addRule(RelativeLayout.BELOW,R.id.course_code_et_17);
                     paramsRemoveButton.addRule(RelativeLayout.RIGHT_OF,R.id.add);
                     removeButton.setLayoutParams(paramsRemoveButton);                  	                	                    
-                }             
+                } 
+       
             }
         };
     }

@@ -11,6 +11,12 @@
         <item type="id" name="course_code_et_9" />
         <item type="id" name="course_code_et_10" />
         <item type="id" name="course_code_et_11" />
+        <item type="id" name="course_code_et_12" />
+        <item type="id" name="course_code_et_13" />
+        <item type="id" name="course_code_et_14" />
+        <item type="id" name="course_code_et_15" />
+        <item type="id" name="course_code_et_16" />
+        <item type="id" name="course_code_et_17" />
         
         <item type="id" name="mark_et_1" />
         <item type="id" name="mark_et_2" />
@@ -23,7 +29,13 @@
         <item type="id" name="mark_et_9" />
         <item type="id" name="mark_et_10" />
         <item type="id" name="mark_et_11" />
-
+        <item type="id" name="mark_et_12" />
+        <item type="id" name="mark_et_13" />
+        <item type="id" name="mark_et_14" />
+        <item type="id" name="mark_et_15" />
+        <item type="id" name="mark_et_16" />
+        <item type="id" name="mark_et_17" />
+        
         <item type="id" name="last_course_code"/>
         <item type="id" name="CGPA"/>
    </resources>
